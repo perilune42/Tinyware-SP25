@@ -11,6 +11,14 @@ public class AttackPreview : MonoBehaviour
 
     public void SetAttack(Attack atk)
     {
+        if (atk == null)
+        {
+            foreach (var cell in linCells)
+            {
+                cell.SetTileAttack(null);
+            }
+            return;
+        }
         var linTileAttacks = atk.tileAttacks.LinearizeArray();
         for (int i = 0; i < linTileAttacks.Length; i++) {
             linCells[i].SetTileAttack(linTileAttacks[i]);

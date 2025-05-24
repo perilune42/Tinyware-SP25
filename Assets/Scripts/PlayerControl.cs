@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerControl : MonoBehaviour
 {
@@ -28,7 +29,13 @@ public class PlayerControl : MonoBehaviour
     public void HoverTile(Vector2Int pos)
     {
         if (SelectedAttack == null) return;
-        Debug.Log(pos);
         OverlayManager.Instance.UpdateOverlay(SelectedAttack, pos);
+    }
+
+    public void CancelAttack()
+    {
+        SelectedAttack = null;
+        OverlayManager.Instance.ClearOverlay();
+        OnAttackChanged?.Invoke(null);
     }
 }

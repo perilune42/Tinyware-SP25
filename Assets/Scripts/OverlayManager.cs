@@ -22,7 +22,6 @@ public class OverlayManager : MonoBehaviour
             SetTileOverlay(pos, null);
         });
 
-        GridTile tile = GameGrid.Instance.GetTile(centerPos);
 
         // bottom left
         Vector2Int rootPos = centerPos + new Vector2Int(-1, -1);
@@ -39,5 +38,16 @@ public class OverlayManager : MonoBehaviour
     public void SetTileOverlay(Vector2Int pos, TileAttack tAtk)
     {
         GameGrid.Instance.GetTile(pos).ShowAttackOverlay(tAtk);
+    }
+
+    public void ClearOverlay()
+    {
+        var prevHoveredRoot = prevHovered + new Vector2Int(-1, -1);
+        Util.StdPos3x3.Iterate2D((rPos, x, y) =>
+        {
+            Vector2Int pos = prevHoveredRoot + rPos;
+            if (!GameGrid.IsValidPos(pos)) return;
+            SetTileOverlay(pos, null);
+        });
     }
 }
