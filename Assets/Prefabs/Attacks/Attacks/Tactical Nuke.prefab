@@ -105,6 +105,10 @@ PrefabInstance:
       value: Energy
       objectReference: {fileID: 0}
     - target: {fileID: 5723103290262366451, guid: 279382529569f2846921f536e5fa5373, type: 3}
+      propertyPath: icon
+      value: 
+      objectReference: {fileID: 21300000, guid: 970165fe6fc00794f84597a5457d661a, type: 3}
+    - target: {fileID: 5723103290262366451, guid: 279382529569f2846921f536e5fa5373, type: 3}
       propertyPath: attackName
       value: Tactical Nuke
       objectReference: {fileID: 0}
@@ -119,6 +123,10 @@ PrefabInstance:
     - target: {fileID: 6399620919089892753, guid: 279382529569f2846921f536e5fa5373, type: 3}
       propertyPath: m_text
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6449038142434491172, guid: 279382529569f2846921f536e5fa5373, type: 3}
+      propertyPath: m_text
+      value: Explosive
       objectReference: {fileID: 0}
     - target: {fileID: 7860511600729583920, guid: 279382529569f2846921f536e5fa5373, type: 3}
       propertyPath: m_text
@@ -143,6 +151,10 @@ PrefabInstance:
     - target: {fileID: 8597815662618650103, guid: 279382529569f2846921f536e5fa5373, type: 3}
       propertyPath: TileAttack.damage
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8597815662618650103, guid: 279382529569f2846921f536e5fa5373, type: 3}
+      propertyPath: TileAttack.damageType
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8695116322784413196, guid: 279382529569f2846921f536e5fa5373, type: 3}
       propertyPath: m_text

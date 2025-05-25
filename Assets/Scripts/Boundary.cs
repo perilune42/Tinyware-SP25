@@ -28,6 +28,7 @@ public class Boundary : MonoBehaviour
                 else
                 {
                     tile.Init(pos);
+                    GameGrid.Instance.AddBoundaryTile(tile, pos);
                 }
             }
 

@@ -2,15 +2,23 @@ using JetBrains.Annotations;
 using NUnit.Framework;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Unit : MonoBehaviour
 {
+    public string UnitName;
+    public Sprite Sprite;
 
     public Vector2Int Pos;
     public int currHealth;
     public int maxHealth;
+    public DamageType immuneDamage;
+    public DamageType vulnerableDamage;
 
+    
     [SerializeField] HealthBar healthBar;
+    [SerializeField] Image unitImage;
+  
 
 
     public void SetPos(Vector2Int pos)
@@ -21,13 +29,55 @@ public class Unit : MonoBehaviour
     private void Awake()
     {
         currHealth = maxHealth;
-        healthBar.ShowHealth(currHealth, maxHealth);
+        healthBar.Initialize(maxHealth, vulnerableDamage, immuneDamage);
+        unitImage.sprite = Sprite;
     }
 
-    public void Damage(int damage, DamageType dType)
+    public DamagePreviewInfo SimulateAttack(TileAttack tAtk)
     {
-        currHealth -= damage;
+        if (tAtk == null || tAtk.IsNullAttack())
+        {
+            return null;
+        }
+        DamagePreviewInfo info = new DamagePreviewInfo();
+        var dType = tAtk.damageType;
+        info.dType = tAtk.damageType;
+        if (dType == immuneDamage)
+        {
+            info.damage = 0;
+            info.immune = true;
+        }
+        else if (dType == vulnerableDamage && tAtk.damage > 0)
+        {
+            info.damage = tAtk.damage * 2;
+            info.boosted = true;
+        }
+        else
+        {
+            info.damage = tAtk.damage;
+        }
+        info.knockback = tAtk.knockbackDirection;
+        return info;
+    }
+
+    public void Damage(DamagePreviewInfo info)
+    {
+        currHealth -= info.damage;
         healthBar.ShowHealth(currHealth, maxHealth);
+        if (currHealth <= 0) 
+        {
+            Death();
+        }
+    }
+
+    public void PreviewHealth(DamagePreviewInfo info)
+    {
+        if (info == null)
+        {
+            healthBar.ShowHealth(currHealth, maxHealth);
+            return;
+        }
+        healthBar.PreviewHealth(currHealth, maxHealth, info.damage);
     }
 
     public void Knockback(Vector2Int dir)
@@ -70,6 +120,13 @@ public class Unit : MonoBehaviour
             Unit toPush = pushChain[i];
             GameGrid.Instance.MoveUnit(toPush, toPush.Pos + dir);
         }
+    }
+
+    public void Death()
+    {
+        GameGrid.Instance.SetUnit(null, Pos);
+        GameManager.Instance.RemoveUnit(this);
+        Destroy(gameObject);
     }
 
 }

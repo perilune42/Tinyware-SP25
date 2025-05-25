@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackName: Precision Artillery
+  icon: {fileID: 0}
 --- !u!1 &7680884946581913145
 GameObject:
   m_ObjectHideFlags: 0
@@ -274,15 +275,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2281229349611743787, guid: cda77c51833130c419af09f31f95baf8, type: 3}
       propertyPath: TileAttack.damage
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2281229349611743787, guid: cda77c51833130c419af09f31f95baf8, type: 3}
+      propertyPath: TileAttack.damageType
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4708056095600583470, guid: cda77c51833130c419af09f31f95baf8, type: 3}
       propertyPath: m_text
-      value: 1
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5417272778058917989, guid: cda77c51833130c419af09f31f95baf8, type: 3}
       propertyPath: m_Name
-      value: Cell (7)
+      value: Upper Center
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -382,9 +387,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2281229349611743787, guid: cda77c51833130c419af09f31f95baf8, type: 3}
+      propertyPath: TileAttack.damageType
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5417272778058917989, guid: cda77c51833130c419af09f31f95baf8, type: 3}
       propertyPath: m_Name
-      value: Cell (8)
+      value: Upper Right
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -486,15 +495,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2281229349611743787, guid: cda77c51833130c419af09f31f95baf8, type: 3}
       propertyPath: TileAttack.damage
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2281229349611743787, guid: cda77c51833130c419af09f31f95baf8, type: 3}
+      propertyPath: TileAttack.damageType
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4708056095600583470, guid: cda77c51833130c419af09f31f95baf8, type: 3}
       propertyPath: m_text
-      value: 1
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5417272778058917989, guid: cda77c51833130c419af09f31f95baf8, type: 3}
       propertyPath: m_Name
-      value: Cell (3)
+      value: Center Left
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -596,15 +609,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2281229349611743787, guid: cda77c51833130c419af09f31f95baf8, type: 3}
       propertyPath: TileAttack.damage
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2281229349611743787, guid: cda77c51833130c419af09f31f95baf8, type: 3}
+      propertyPath: TileAttack.damageType
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4708056095600583470, guid: cda77c51833130c419af09f31f95baf8, type: 3}
       propertyPath: m_text
-      value: 1
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5417272778058917989, guid: cda77c51833130c419af09f31f95baf8, type: 3}
       propertyPath: m_Name
-      value: Cell (1)
+      value: Lower Center
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -704,9 +721,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2281229349611743787, guid: cda77c51833130c419af09f31f95baf8, type: 3}
+      propertyPath: TileAttack.damageType
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5417272778058917989, guid: cda77c51833130c419af09f31f95baf8, type: 3}
       propertyPath: m_Name
-      value: Cell (2)
+      value: Lower Right
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -808,15 +829,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2281229349611743787, guid: cda77c51833130c419af09f31f95baf8, type: 3}
       propertyPath: TileAttack.damage
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2281229349611743787, guid: cda77c51833130c419af09f31f95baf8, type: 3}
+      propertyPath: TileAttack.damageType
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4708056095600583470, guid: cda77c51833130c419af09f31f95baf8, type: 3}
       propertyPath: m_text
-      value: 1
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5417272778058917989, guid: cda77c51833130c419af09f31f95baf8, type: 3}
       propertyPath: m_Name
-      value: Cell (5)
+      value: Center Right
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -916,9 +941,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2281229349611743787, guid: cda77c51833130c419af09f31f95baf8, type: 3}
+      propertyPath: TileAttack.damageType
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5417272778058917989, guid: cda77c51833130c419af09f31f95baf8, type: 3}
       propertyPath: m_Name
-      value: Cell (6)
+      value: Upper Left
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1020,23 +1049,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2281229349611743787, guid: cda77c51833130c419af09f31f95baf8, type: 3}
       propertyPath: TileAttack.damage
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2281229349611743787, guid: cda77c51833130c419af09f31f95baf8, type: 3}
       propertyPath: TileAttack.damageType
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3568693475151033592, guid: cda77c51833130c419af09f31f95baf8, type: 3}
       propertyPath: m_text
-      value: Explosive
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4708056095600583470, guid: cda77c51833130c419af09f31f95baf8, type: 3}
       propertyPath: m_text
-      value: 2
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5417272778058917989, guid: cda77c51833130c419af09f31f95baf8, type: 3}
       propertyPath: m_Name
-      value: Cell (4)
+      value: Center
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1136,9 +1165,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2281229349611743787, guid: cda77c51833130c419af09f31f95baf8, type: 3}
+      propertyPath: TileAttack.damageType
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5417272778058917989, guid: cda77c51833130c419af09f31f95baf8, type: 3}
       propertyPath: m_Name
-      value: 'Cell '
+      value: Lower Left
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

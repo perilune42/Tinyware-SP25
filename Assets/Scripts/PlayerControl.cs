@@ -14,6 +14,10 @@ public class PlayerControl : MonoBehaviour
         Instance = this;
     }
 
+    private void Start()
+    {
+        OnAttackChanged?.Invoke(null);
+    }
     public void SelectAttack(Attack attack)
     {
         SelectedAttack = attack;
@@ -24,10 +28,16 @@ public class PlayerControl : MonoBehaviour
     {
         if (SelectedAttack == null) return;
         SelectedAttack.Execute(pos);
+        OverlayManager.Instance.ClearOverlay();
+        SelectAttack(null);
     }
 
     public void HoverTile(Vector2Int pos)
     {
+        if (GameGrid.IsValidPos(pos))
+        {
+            UnitInfoUI.Instance.ViewUnitInfo(GameGrid.Instance.GetUnit(pos));
+        }
         if (SelectedAttack == null) return;
         OverlayManager.Instance.UpdateOverlay(SelectedAttack, pos);
     }

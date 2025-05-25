@@ -4,6 +4,7 @@ using UnityEngine.Android;
 public class Attack : MonoBehaviour
 {
     public string attackName;
+    public Sprite icon;
 
     public const int attackWidth = 3;
     public const int attackHeight = 3;
@@ -30,7 +31,8 @@ public class Attack : MonoBehaviour
             Unit unit = GameGrid.Instance.GetUnit(pos);
             if (unit == null) return;
 
-            unit.Damage(tAtk.damage, tAtk.damageType);
+            DamagePreviewInfo info = unit.SimulateAttack(tAtk);
+            unit.Damage(info);
             if (tAtk.knockbackDirection != Directions.None)
             {
                 unit.Knockback(tAtk.knockbackDirection);
@@ -39,7 +41,8 @@ public class Attack : MonoBehaviour
         }, true);
         // iterates top left -> bottom right (shouldn't matter in most cases)
 
-
+        AttackManager.Instance.RemoveAttack(this);
+        
     }
 
 }

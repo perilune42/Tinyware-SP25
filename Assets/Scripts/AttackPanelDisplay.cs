@@ -13,12 +13,7 @@ public class AttackPanelDisplay : MonoBehaviour
 
     public void ShowAttackInfo(Attack attack)
     {
-        if (attack == null) nameText.text = "";
-        else
-        {
-            nameText.text = attack.attackName;
-        }
-        
+
     }
 
     public void Clear()
