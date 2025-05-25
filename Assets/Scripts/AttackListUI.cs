@@ -7,26 +7,38 @@ public class AttackListUI : MonoBehaviour
     public static AttackListUI Instance;
     List<AttackButton> attackButtons = new();
     [SerializeField] AttackButton attackButtonPrefab;
+    [SerializeField] DrawButton drawButtonPrefab;
+    [SerializeField] int maxAttacks;
 
     private void Awake()
     {
         Instance = this;
-        foreach (var atkButton in GetComponentsInChildren<AttackButton>())
-        {
-            Destroy(atkButton.gameObject);
-        }
+        ClearButtons();
     }
     public void SetAttacks(List<Attack> attacks)
     {
-        foreach (var button in attackButtons)
-        {
-            Destroy(button.gameObject);
-        }
-        attackButtons.Clear();
+        ClearButtons();
         foreach (var atk in attacks)
         {
             AttackButton newButton = Instantiate(attackButtonPrefab, transform);
             newButton.SetAttack(atk);
+            attackButtons.Add(newButton);
         }
+        if (attackButtons.Count < maxAttacks)
+        {
+            DrawButton drawButton = Instantiate(drawButtonPrefab, transform);
+        }
+    }
+    private void ClearButtons()
+    {
+        foreach (var atkButton in GetComponentsInChildren<AttackButton>())
+        {
+            Destroy(atkButton.gameObject);
+        }
+        foreach (var drawButton in GetComponentsInChildren<DrawButton>())
+        {
+            Destroy(drawButton.gameObject);
+        }
+        attackButtons.Clear();
     }
 }

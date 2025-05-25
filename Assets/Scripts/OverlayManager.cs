@@ -15,10 +15,10 @@ public class OverlayManager : MonoBehaviour
     {
         var prevHoveredRoot = prevHovered + new Vector2Int(-1, -1);
 
-        Util.StdPos3x3.Iterate2D((rPos, x, y) =>
+        Util.StdPos3x3.Iterate2D((relPos, x, y) =>
         {
-            Vector2Int pos = prevHoveredRoot + rPos;
-            if (!GameGrid.IsValidPos(pos)) return;
+            Vector2Int pos = prevHoveredRoot + new Vector2Int(x, y);
+            if (!GameGrid.IsValidPos(pos) && !GameGrid.IsOnBoundary(pos)) return;
             SetTileOverlay(pos, null);
         });
 
@@ -28,16 +28,38 @@ public class OverlayManager : MonoBehaviour
         atk.tileAttacks.Iterate2D((tAtk, x, y) =>
         {
             Vector2Int pos = rootPos + new Vector2Int(x, y);
-            if (!GameGrid.IsValidPos(pos)) return;
+            if (!GameGrid.IsValidPos(pos) && !GameGrid.IsOnBoundary(pos)) return;
             SetTileOverlay(pos, tAtk);
-        }, true);
+        });
 
         prevHovered = centerPos;
     }
 
+    // includes overlaying damage previews on units
     public void SetTileOverlay(Vector2Int pos, TileAttack tAtk)
     {
-        GameGrid.Instance.GetTile(pos).ShowAttackOverlay(tAtk);
+        if (GameGrid.IsValidPos(pos))
+        {
+            Unit unit = GameGrid.Instance.GetUnit(pos);
+            if (unit != null)
+            {
+                var previewInfo = unit.SimulateAttack(tAtk);
+                unit.PreviewHealth(previewInfo);
+                GameGrid.Instance.GetTile(pos).ShowUnitAttackOverlay(previewInfo);
+            }
+            else
+            {
+                GameGrid.Instance.GetTile(pos).ShowAttackOverlay(tAtk);
+            }
+        }
+        else if (GameGrid.IsOnBoundary(pos))
+        {
+            GameGrid.Instance.GetBoundaryTile(pos).ShowAttackOverlay(tAtk);
+        }
+        else
+        {
+            Debug.LogError("Tried setting overlay on invalid tile");
+        }
     }
 
     public void ClearOverlay()
@@ -46,7 +68,7 @@ public class OverlayManager : MonoBehaviour
         Util.StdPos3x3.Iterate2D((rPos, x, y) =>
         {
             Vector2Int pos = prevHoveredRoot + rPos;
-            if (!GameGrid.IsValidPos(pos)) return;
+            if (!GameGrid.IsValidPos(pos) && !GameGrid.IsOnBoundary(pos)) return;
             SetTileOverlay(pos, null);
         });
     }

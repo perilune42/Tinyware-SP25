@@ -1,6 +1,8 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public static class ExtensionMethods
 {
@@ -63,6 +65,62 @@ public static class ExtensionMethods
 
     }
 
+    public static Color AlphaBlend(this Color bg, Color fg)
+    {
+        float alpha = fg.a;
+        float invAlpha = 1f - alpha;
+
+        Color result;
+        result.r = fg.r * alpha + bg.r * invAlpha;
+        result.g = fg.g * alpha + bg.g * invAlpha;
+        result.b = fg.b * alpha + bg.b * invAlpha;
+        result.a = fg.a + bg.a;
+        return result;
+    }
+
+    public static TKey GetWeightedRandomKey<TKey, TValue>(
+        this Dictionary<TKey, TValue> dict,
+        Func<TValue, float> weightSelector)
+    {
+        if (dict.Count == 0)
+            throw new ArgumentException("Dictionary is empty");
+
+        float totalWeight = 0f;
+        foreach (var kvp in dict)
+        {
+            float weight = weightSelector(kvp.Value);
+            if (weight < 0f)
+                throw new ArgumentException("Weights must be non-negative");
+            totalWeight += weight;
+        }
+
+        if (totalWeight == 0f)
+            throw new ArgumentException("Total weight is zero — all weights are zero?");
+
+        float rand = UnityEngine.Random.value * totalWeight;
+
+        foreach (var kvp in dict)
+        {
+            float weight = weightSelector(kvp.Value);
+            if (rand < weight)
+                return kvp.Key;
+            rand -= weight;
+        }
+
+        // Fallback in case of floating-point rounding issues
+        foreach (var kvp in dict)
+            if (weightSelector(kvp.Value) > 0)
+                return kvp.Key;
+
+        throw new InvalidOperationException("No valid weighted key found");
+    }
+
+    public static E RandomElement<E>(this List<E> list)
+    {
+        if (list.Count == 0) return default;
+        return list[Random.Range(0, list.Count)];
+    }
+
 }
 
 public static class Util
@@ -71,4 +129,22 @@ public static class Util
     { {new(0,0), new(1,0),new(2,0)},
     {new(0,1), new(1,1),new(2,1)},
     {new(0,2), new(1,2),new(2,2)}};
+
+    public static IEnumerator DelayedCall(float time, Action func)
+    {
+        yield return new WaitForSeconds(time);
+        func?.Invoke();
+    }
+
+    // onUpdate param: t (0 to 1)
+    public static IEnumerator ContinuousCall(float time, Action<float> onUpdate, Action onEnd)
+    {
+        float startTime = Time.time;
+        while (Time.time < startTime + time)
+        {
+            onUpdate?.Invoke((Time.time - startTime) / time);
+            yield return new WaitForEndOfFrame();
+        }
+        onEnd?.Invoke();
+    }
 }
