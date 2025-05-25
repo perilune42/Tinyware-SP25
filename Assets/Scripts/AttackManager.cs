@@ -9,7 +9,7 @@ public class AttackManager : MonoBehaviour
     public static AttackManager Instance;
 
     public List<Attack> Attacks;
-    [SerializeField] List<Attack> possibleAttacks;
+    public List<Attack> possibleAttacks;
     [SerializeField] public int startingAttackCount = 3;
 
     private void Awake()
@@ -36,19 +36,27 @@ public class AttackManager : MonoBehaviour
         }
     }
 
-    private void AddAttack(Attack attackPrefab)
+    private void AddAttack(Attack attack)
     {
-        var newAtk = Instantiate(attackPrefab, transform);
+        Attack newAtk;
+        if (attack.Initialized)
+        {
+            newAtk = attack;
+            newAtk.transform.SetParent(transform);
+        }
+        else
+        {
+            newAtk = Instantiate(attack, transform);
+            newAtk.Init();
+        }
         Attacks.Add(newAtk);
-        newAtk.Init();
         AttackListUI.Instance.SetAttacks(Attacks);
     }
 
-    public void DrawNewAttack()
+    public void DrawAttack(Attack attack)
     {
-        var chosenAttack = possibleAttacks.RandomElement();
-        AddAttack(chosenAttack);
-        Timer.Instance.RemoveTime(Timer.Instance.DrawPenalty, "");
+        AddAttack(attack);
+        Timer.Instance.ApplyDrawPenalty();
     }
 
     public void RemoveAttack(Attack attack)

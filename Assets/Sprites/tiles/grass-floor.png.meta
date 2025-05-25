@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 412b99a31ca8030458fc6583024d9d96
+guid: e8a9ba7de66ff3b47be7c7cf2b316d3f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 80770505355218612
-    second: rectangle-button_0
+      213: 3277927621751471815
+    second: grass-floor_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: rectangle-button_0
+      name: grass-floor_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 335
-        height: 95
+        width: 150
+        height: 150
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4bec600c854fe1100800000000000000
-      internalID: 80770505355218612
+      spriteID: 7ceffe50ec98d7d20800000000000000
+      internalID: 3277927621751471815
       vertices: []
       indices: 
       edges: []
@@ -147,8 +147,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      rectangle-button_0: 80770505355218612
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

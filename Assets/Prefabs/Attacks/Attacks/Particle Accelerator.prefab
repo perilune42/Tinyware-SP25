@@ -22,7 +22,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2083813863281775329, guid: 279382529569f2846921f536e5fa5373, type: 3}
       propertyPath: TileAttack.damageType
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2762303237589241609, guid: 279382529569f2846921f536e5fa5373, type: 3}
       propertyPath: TileAttack.damage
@@ -38,7 +38,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3658387876722101298, guid: 279382529569f2846921f536e5fa5373, type: 3}
       propertyPath: m_text
-      value: Energy
+      value: Ballistic
       objectReference: {fileID: 0}
     - target: {fileID: 4761958170314595300, guid: 279382529569f2846921f536e5fa5373, type: 3}
       propertyPath: m_text
@@ -54,7 +54,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6449038142434491172, guid: 279382529569f2846921f536e5fa5373, type: 3}
       propertyPath: m_text
-      value: Ballistic
+      value: Energy
       objectReference: {fileID: 0}
     - target: {fileID: 8597815662618650103, guid: 279382529569f2846921f536e5fa5373, type: 3}
       propertyPath: TileAttack.damage
@@ -62,7 +62,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8597815662618650103, guid: 279382529569f2846921f536e5fa5373, type: 3}
       propertyPath: TileAttack.damageType
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8695116322784413196, guid: 279382529569f2846921f536e5fa5373, type: 3}
       propertyPath: m_text

@@ -34,7 +34,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -24}
+  m_AnchoredPosition: {x: 0, y: -40.7}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8258821834273403231
@@ -203,7 +203,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 4 Attacks Remaining
+  m_text: 'Enmemies Defeated!
+
+    4 Attacks Remaining'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b9317e9473924c44db02728b63fc7cdb, type: 2}
   m_sharedMaterial: {fileID: 4259020312877184848, guid: b9317e9473924c44db02728b63fc7cdb, type: 2}
@@ -288,5 +290,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   descriptionText: {fileID: 8921571711818491818}
   timeText: {fileID: 3763725047683283001}
-  upShift: 2
+  upShift: 0.2
   isPositive: 1

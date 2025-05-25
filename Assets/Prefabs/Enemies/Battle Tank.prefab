@@ -78,7 +78,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6377243349223936042, guid: 0b09fdc1473504e4d87112446c7dc21a, type: 3}
       propertyPath: vulnerableDamage
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6714668358435836655, guid: 0b09fdc1473504e4d87112446c7dc21a, type: 3}
       propertyPath: m_AnchorMax.y
@@ -106,7 +106,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6964040455056918909, guid: 0b09fdc1473504e4d87112446c7dc21a, type: 3}
       propertyPath: m_Name
-      value: Tank
+      value: Battle Tank
       objectReference: {fileID: 0}
     - target: {fileID: 8003843421380586990, guid: 0b09fdc1473504e4d87112446c7dc21a, type: 3}
       propertyPath: m_Pivot.x

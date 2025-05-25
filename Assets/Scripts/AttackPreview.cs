@@ -33,6 +33,11 @@ public class AttackPreview : MonoBehaviour
             linCells[i].SetTileAttack(linTileAttacks[i]);
         }
     }
+
+    public void SetText(string str)
+    {
+        nameText.text = str;
+    }
     
 
 

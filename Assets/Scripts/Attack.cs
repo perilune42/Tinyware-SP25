@@ -11,11 +11,14 @@ public class Attack : MonoBehaviour
 
     public TileAttack[,] tileAttacks = new TileAttack[attackWidth, attackHeight];
 
+    [HideInInspector] public bool Initialized = false;
+
     public void Init()
     {
         var editor = GetComponentInChildren<AttackEditor>(true);
         tileAttacks = editor.GetTileAttacks();
         Destroy(editor.gameObject);
+        Initialized = true;
     }
 
     public void Execute(Vector2Int clickPos)

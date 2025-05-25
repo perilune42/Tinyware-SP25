@@ -8,6 +8,8 @@ public class AttackButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     [SerializeField] Image attackIcon;
     Attack attack;
 
+    public bool IsOwned = true;
+
     public void SetAttack(Attack attack)
     {
         attackIcon.sprite = attack.icon;
@@ -16,7 +18,16 @@ public class AttackButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 
     public void Select()
     {
-        PlayerControl.Instance.SelectAttack(attack);
+        if (IsOwned)
+        {
+            PlayerControl.Instance.SelectAttack(attack);
+        }
+        else
+        {
+            AttackManager.Instance.DrawAttack(attack);
+            AttackSelector.Instance.Close();
+        }
+        
     }
 
     public void OnPointerEnter(PointerEventData eventData)

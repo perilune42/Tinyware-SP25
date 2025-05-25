@@ -8,7 +8,11 @@ public class Timer : MonoBehaviour
     public static Timer Instance;
     private float timeRemaining; // seconds
     [SerializeField] private float initialTime = 10f;
-    [SerializeField] public float TimeRefund, DrawPenalty;
+    [SerializeField] public float TimeRefund = 5f;
+    [SerializeField] public float BaseTimeReward = 15f;
+    [SerializeField] public float TimeRewardPerRound = 5f;
+    [SerializeField] public float BaseDrawPenalty = 5f;
+    [SerializeField] public float DrawPenaltyPercentage = 0.1f; // % of time reduced
 
     public bool IsCounting = false;
     private bool ended = false;
@@ -87,6 +91,19 @@ public class Timer : MonoBehaviour
         var popup = Instantiate(negTimePopup);
         popup.transform.SetParent(popupSpawnLocation, false);
         popup.Display(time, desc);
+    }
+
+    public void ApplyDrawPenalty()
+    {
+
+        RemoveTime(GetDrawPenalty(), "");
+    }
+
+    public float GetDrawPenalty()
+    {
+        float penalty = Mathf.Max(BaseDrawPenalty, timeRemaining * DrawPenaltyPercentage);
+        penalty = Mathf.Round(penalty);
+        return penalty;
     }
 
     public static string FormatTime(float seconds)

@@ -44,9 +44,11 @@ public class GameManager : MonoBehaviour
         AllUnits.Remove(unit);
         if (AllUnits.Count == 0) 
         {
-            int remainingAtkCount = AttackManager.Instance.Attacks.Count;
-            Timer.Instance.AddTime(remainingAtkCount * Timer.Instance.TimeRefund,
-            $"{remainingAtkCount} Attacks Remaining");
+            int remainingAtkCount = AttackManager.Instance.Attacks.Count - 1; // -1 to account for the current one still being fired
+            float timeReward = Timer.Instance.BaseTimeReward
+                + Timer.Instance.TimeRewardPerRound * (currRound - 1)
+                + remainingAtkCount * Timer.Instance.TimeRefund;
+            Timer.Instance.AddTime(timeReward, $"Enemies Defeated! \n{remainingAtkCount} Attacks Remaining");
             FadeAnimation.Instance.Fade(NextRound);
         }
     }

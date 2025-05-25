@@ -5,7 +5,7 @@ using UnityEngine;
 public class TimerChangePopup : MonoBehaviour
 {
     [SerializeField] TMP_Text descriptionText, timeText;
-    [SerializeField] float upShift = 5f;
+    [SerializeField] float upShift = 3f;
     [SerializeField] bool isPositive;
 
     public void Display(float time, string desc)
@@ -13,8 +13,8 @@ public class TimerChangePopup : MonoBehaviour
         if (isPositive) timeText.text = $"+ {Timer.FormatTime(time)}";
         else timeText.text = $"- {Timer.FormatTime(time)}";
         descriptionText.text = desc;
-        transform.DOMoveY(transform.position.y + upShift, 2f);
-        descriptionText.DOColor(Color.clear, 2f);
-        timeText.DOColor(Color.clear, 2f).OnComplete(() => Destroy(gameObject));
+        transform.DOMoveY(transform.position.y + upShift, 5f);
+        descriptionText.DOColor(Color.clear, 5f);
+        timeText.DOColor(Color.clear, 5f).OnComplete(() => Destroy(gameObject));
     }
 }
