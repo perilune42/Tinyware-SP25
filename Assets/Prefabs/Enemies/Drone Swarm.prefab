@@ -65,6 +65,10 @@ PrefabInstance:
       value: Drone Swarm
       objectReference: {fileID: 0}
     - target: {fileID: 6377243349223936042, guid: 0b09fdc1473504e4d87112446c7dc21a, type: 3}
+      propertyPath: unitType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6377243349223936042, guid: 0b09fdc1473504e4d87112446c7dc21a, type: 3}
       propertyPath: maxHealth
       value: 2
       objectReference: {fileID: 0}
@@ -76,6 +80,18 @@ PrefabInstance:
       propertyPath: vulnerableDamage
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 6377243349223936042, guid: 0b09fdc1473504e4d87112446c7dc21a, type: 3}
+      propertyPath: spriteSheet.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6377243349223936042, guid: 0b09fdc1473504e4d87112446c7dc21a, type: 3}
+      propertyPath: 'spriteSheet.Array.data[0]'
+      value: 
+      objectReference: {fileID: 9112094536582073382, guid: 22cfdf69f64126145896b88b5274a479, type: 3}
+    - target: {fileID: 6377243349223936042, guid: 0b09fdc1473504e4d87112446c7dc21a, type: 3}
+      propertyPath: 'spriteSheet.Array.data[1]'
+      value: 
+      objectReference: {fileID: 738555971955518720, guid: 22cfdf69f64126145896b88b5274a479, type: 3}
     - target: {fileID: 6714668358435836655, guid: 0b09fdc1473504e4d87112446c7dc21a, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

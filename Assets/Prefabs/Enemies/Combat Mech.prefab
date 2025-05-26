@@ -76,6 +76,18 @@ PrefabInstance:
       propertyPath: currHealth
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 6377243349223936042, guid: 0b09fdc1473504e4d87112446c7dc21a, type: 3}
+      propertyPath: spriteSheet.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6377243349223936042, guid: 0b09fdc1473504e4d87112446c7dc21a, type: 3}
+      propertyPath: 'spriteSheet.Array.data[0]'
+      value: 
+      objectReference: {fileID: -1521670389705202126, guid: ed39439f76fb3324bb7b29fbdcf4571b, type: 3}
+    - target: {fileID: 6377243349223936042, guid: 0b09fdc1473504e4d87112446c7dc21a, type: 3}
+      propertyPath: 'spriteSheet.Array.data[1]'
+      value: 
+      objectReference: {fileID: -9170724740174191261, guid: ed39439f76fb3324bb7b29fbdcf4571b, type: 3}
     - target: {fileID: 6714668358435836655, guid: 0b09fdc1473504e4d87112446c7dc21a, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -102,7 +114,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6964040455056918909, guid: 0b09fdc1473504e4d87112446c7dc21a, type: 3}
       propertyPath: m_Name
-      value: Mech
+      value: Combat Mech
       objectReference: {fileID: 0}
     - target: {fileID: 8003843421380586990, guid: 0b09fdc1473504e4d87112446c7dc21a, type: 3}
       propertyPath: m_Pivot.x

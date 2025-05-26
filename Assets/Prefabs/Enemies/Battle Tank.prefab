@@ -80,6 +80,18 @@ PrefabInstance:
       propertyPath: vulnerableDamage
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6377243349223936042, guid: 0b09fdc1473504e4d87112446c7dc21a, type: 3}
+      propertyPath: spriteSheet.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6377243349223936042, guid: 0b09fdc1473504e4d87112446c7dc21a, type: 3}
+      propertyPath: 'spriteSheet.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8393847917221519878, guid: c30a8a17e43669c4cb785bd56d9d83c0, type: 3}
+    - target: {fileID: 6377243349223936042, guid: 0b09fdc1473504e4d87112446c7dc21a, type: 3}
+      propertyPath: 'spriteSheet.Array.data[1]'
+      value: 
+      objectReference: {fileID: 6275137670833417977, guid: c30a8a17e43669c4cb785bd56d9d83c0, type: 3}
     - target: {fileID: 6714668358435836655, guid: 0b09fdc1473504e4d87112446c7dc21a, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

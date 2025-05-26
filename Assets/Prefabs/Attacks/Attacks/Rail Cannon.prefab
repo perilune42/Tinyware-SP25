@@ -45,6 +45,10 @@ PrefabInstance:
       value: "\u2191"
       objectReference: {fileID: 0}
     - target: {fileID: 5723103290262366451, guid: 279382529569f2846921f536e5fa5373, type: 3}
+      propertyPath: sfx
+      value: 
+      objectReference: {fileID: 8300000, guid: cf800c0e5c1aa3c47b29d431359fe4f6, type: 3}
+    - target: {fileID: 5723103290262366451, guid: 279382529569f2846921f536e5fa5373, type: 3}
       propertyPath: icon
       value: 
       objectReference: {fileID: 21300000, guid: da8d881d667a26e48ba4b488110d129d, type: 3}

@@ -26,7 +26,7 @@ public class PlayerControl : MonoBehaviour
 
     public void ClickTile(Vector2Int pos)
     {
-        if (SelectedAttack == null) return;
+        if (GameGrid.Instance.MovingUnits || SelectedAttack == null) return;
         SelectedAttack.Execute(pos);
         OverlayManager.Instance.ClearOverlay();
         SelectAttack(null);

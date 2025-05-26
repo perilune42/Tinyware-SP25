@@ -2,7 +2,7 @@ using UnityEngine;
 
 public enum DamageType
 {
-    Ballistic, Energy, Explosive, None
+    Ballistic, Energy, Explosive, None, Friendly
 }
 
 public static class Directions

@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public enum TileType
 {
-    Normal, Chasm
+    Normal, Chasm, Mountain
 }
 
 public enum BiomeType

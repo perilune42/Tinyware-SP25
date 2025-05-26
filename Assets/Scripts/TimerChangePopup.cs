@@ -1,5 +1,6 @@
 using DG.Tweening;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class TimerChangePopup : MonoBehaviour
@@ -15,6 +16,6 @@ public class TimerChangePopup : MonoBehaviour
         descriptionText.text = desc;
         transform.DOMoveY(transform.position.y + upShift, 5f);
         descriptionText.DOColor(Color.clear, 5f);
-        timeText.DOColor(Color.clear, 5f).OnComplete(() => Destroy(gameObject));
+        timeText.DOColor(Color.clear, 5f).OnComplete(() => { if (gameObject != null) Destroy(gameObject); });
     }
 }

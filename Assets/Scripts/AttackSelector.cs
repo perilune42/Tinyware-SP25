@@ -34,7 +34,7 @@ public class AttackSelector : MonoBehaviour
             Destroy(button.gameObject);
         }
         buttons.Clear();
-        buttonsContainer.gameObject.SetActive(true);
+        buttonsContainer.transform.parent.gameObject.SetActive(true);
         isShowing = true;
         List<Attack> chosenAttacks = new();
         int iter = 0;
@@ -60,6 +60,6 @@ public class AttackSelector : MonoBehaviour
     public void Close()
     {
         isShowing = false;
-        buttonsContainer.gameObject.SetActive(false);
+        buttonsContainer.transform.parent.gameObject.SetActive(false);
     }
 }

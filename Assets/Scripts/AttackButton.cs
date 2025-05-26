@@ -18,6 +18,7 @@ public class AttackButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 
     public void Select()
     {
+        SoundPlayer.PlayClick();
         if (IsOwned)
         {
             PlayerControl.Instance.SelectAttack(attack);

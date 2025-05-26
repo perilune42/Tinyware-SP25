@@ -1,7 +1,7 @@
 using System;
 using TMPro;
-using UnityEditor.Build.Content;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Timer : MonoBehaviour
 {
@@ -12,10 +12,12 @@ public class Timer : MonoBehaviour
     [SerializeField] public float BaseTimeReward = 15f;
     [SerializeField] public float TimeRewardPerRound = 5f;
     [SerializeField] public float BaseDrawPenalty = 5f;
+    [SerializeField] public float MaxDrawPenalty = 15f;
     [SerializeField] public float DrawPenaltyPercentage = 0.1f; // % of time reduced
 
     public bool IsCounting = false;
     private bool ended = false;
+    private bool lowTime;
 
     [SerializeField] TMP_Text timerText;
     public Action OnTimerEnd;
@@ -25,8 +27,16 @@ public class Timer : MonoBehaviour
     [SerializeField] TimerChangePopup posTimePopup, negTimePopup;
     [SerializeField] Transform popupSpawnLocation;
 
+    public Action<float> OnTimerTick; // every 0.5s
+
+    bool flashOn;
+
+    [SerializeField] Image clockImage;
+    [SerializeField] Sprite[] clockSprites;
+
     private void Awake()
     {
+        
         Instance = this;
         GameManager.Instance.OnNewRound += (roundNum) => roundNumText.text = $"ROUND {roundNum}";
     }
@@ -50,20 +60,39 @@ public class Timer : MonoBehaviour
             }
             if (Mathf.Floor(timeRemaining * 2) % 2 == 0)
             {
+                if (flashOn)
+                {
+                    OnTimerTick?.Invoke(timeRemaining);
+                    flashOn = false;
+                }
                 timerText.enabled = false;
                 return;
             }
+        }
+        if (!flashOn)
+        {
+            flashOn = true;
+            OnTimerTick?.Invoke(timeRemaining);
         }
         timerText.enabled = true;
         timerText.text = FormatTime(timeRemaining);
         if (timeRemaining < 30f)
         {
+            if (!lowTime)
+            {
+                lowTime = true;
+                SoundPlayer.PlayTime();
+            }
             timerText.color = Color.red;
         }
         else
         {
+            lowTime = false;
             timerText.color = Color.white;
         }
+
+        int clkIndex = (int)(Mathf.Clamp((timeRemaining / (initialTime * 2)), 0f, 0.99f) * clockSprites.Length);
+        clockImage.sprite = clockSprites[clkIndex];
     }
 
 
@@ -75,6 +104,11 @@ public class Timer : MonoBehaviour
         timerText.color = Color.red;
         IsCounting = false;
         ended = true;
+    }
+
+    public void StopCounting()
+    {
+        IsCounting = false;
     }
     
     public void AddTime(float time, string desc)
@@ -101,7 +135,7 @@ public class Timer : MonoBehaviour
 
     public float GetDrawPenalty()
     {
-        float penalty = Mathf.Max(BaseDrawPenalty, timeRemaining * DrawPenaltyPercentage);
+        float penalty = Mathf.Clamp(timeRemaining * DrawPenaltyPercentage, BaseDrawPenalty, MaxDrawPenalty);
         penalty = Mathf.Round(penalty);
         return penalty;
     }

@@ -28,6 +28,18 @@ PrefabInstance:
       propertyPath: vulnerableDamage
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 6377243349223936042, guid: 0b09fdc1473504e4d87112446c7dc21a, type: 3}
+      propertyPath: spriteSheet.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6377243349223936042, guid: 0b09fdc1473504e4d87112446c7dc21a, type: 3}
+      propertyPath: 'spriteSheet.Array.data[0]'
+      value: 
+      objectReference: {fileID: -4117265282114530636, guid: 934f8862ec8728f47bb09e3a4afc43a8, type: 3}
+    - target: {fileID: 6377243349223936042, guid: 0b09fdc1473504e4d87112446c7dc21a, type: 3}
+      propertyPath: 'spriteSheet.Array.data[1]'
+      value: 
+      objectReference: {fileID: 6673253246191519668, guid: 934f8862ec8728f47bb09e3a4afc43a8, type: 3}
     - target: {fileID: 6964040455056918909, guid: 0b09fdc1473504e4d87112446c7dc21a, type: 3}
       propertyPath: m_Name
       value: Hunter Mech

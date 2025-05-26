@@ -32,6 +32,18 @@ PrefabInstance:
       propertyPath: vulnerableDamage
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 6377243349223936042, guid: 0b09fdc1473504e4d87112446c7dc21a, type: 3}
+      propertyPath: spriteSheet.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6377243349223936042, guid: 0b09fdc1473504e4d87112446c7dc21a, type: 3}
+      propertyPath: 'spriteSheet.Array.data[0]'
+      value: 
+      objectReference: {fileID: 6112339087131421336, guid: bee596f4cf6ba8848ac5d209068e5a24, type: 3}
+    - target: {fileID: 6377243349223936042, guid: 0b09fdc1473504e4d87112446c7dc21a, type: 3}
+      propertyPath: 'spriteSheet.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1685813745805026956, guid: bee596f4cf6ba8848ac5d209068e5a24, type: 3}
     - target: {fileID: 6964040455056918909, guid: 0b09fdc1473504e4d87112446c7dc21a, type: 3}
       propertyPath: m_Name
       value: Landship

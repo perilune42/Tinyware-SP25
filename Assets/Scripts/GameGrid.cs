@@ -1,8 +1,8 @@
+using DG.Tweening;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using static UnityEditor.PlayerSettings;
 
 public class GameGrid : MonoBehaviour
 {
@@ -20,6 +20,8 @@ public class GameGrid : MonoBehaviour
     [SerializeField] List<GridTile> possibleTiles = new();
     [SerializeField] TileGenerationData[] tileGeneration;
     private Dictionary<TileType, TileGenerationData> tileGenDict;
+
+    [HideInInspector] public bool MovingUnits;
 
     [Serializable]
     private struct TileGenerationData
@@ -63,12 +65,17 @@ public class GameGrid : MonoBehaviour
 
         // choose tiletype
         TileType chosenTileType = tileGenDict.GetWeightedRandomKey((tgd) => tgd.weight);
+        List<GridTile> availableTiles = new List<GridTile>();
         foreach (var tile in possibleTiles)
         {
             if (tile.Type == chosenTileType)
             {
-                return tile;
+                availableTiles.Add(tile);
             }
+        }
+        if (availableTiles.Count > 0)
+        {
+            return availableTiles.RandomElement();
         }
         Debug.LogError("Failed to find a tile");
         return null;
@@ -133,14 +140,15 @@ public class GameGrid : MonoBehaviour
     }
 
     // does not do any checks
-    public void SetUnit(Unit unit, Vector2Int pos)
+    public void SetUnit(Unit unit, Vector2Int pos, bool moveVisual = true)
     {
         units[pos.x, pos.y] = unit;
         if (unit != null)
         {
             unit.SetPos(pos);
             GridTile tile = GetTile(pos);
-            unit.transform.SetParent(tile.transform, false);
+            unit.transform.SetParent(tile.transform, true);
+            if (moveVisual) unit.transform.localPosition = Vector3.zero;
         }
     }
 
@@ -163,6 +171,11 @@ public class GameGrid : MonoBehaviour
         return pos.x >= 0 && pos.x < gridWidth && pos.y >= 0 && pos.y < gridHeight;
     }
 
+    public bool IsPassable(Vector2Int pos)
+    {
+        return IsValidPos(pos) && GetTile(pos).Type != TileType.Mountain;
+    }
+
     public static bool IsOnBoundary(Vector2Int pos)
     {
         return ((pos.x == -1 || pos.x == gridWidth) && (pos.y >= -1 && pos.y <= gridHeight))||
@@ -176,14 +189,21 @@ public class GameGrid : MonoBehaviour
             Debug.LogError("Invalid Move");
         }
         var oldPos = unit.Pos;
-        SetUnit(unit, pos);
+        SetUnit(unit, pos, false);
         SetUnit(null, oldPos);
-        if (GetTile(pos).Type == TileType.Chasm)
+        unit.transform.DOMove(GetTile(pos).transform.position, 0.3f).OnComplete(() => FinalizeMove(unit, pos));
+        MovingUnits = true;
+    }
+
+    private void FinalizeMove(Unit unit, Vector2Int pos)
+    {
+        unit.transform.localPosition = Vector3.zero;
+        if (unit.unitType != UnitType.Aerial && GetTile(pos).Type == TileType.Chasm)
         {
             unit.Death();
         }
+        MovingUnits = false;
     }
-
 
 
 }

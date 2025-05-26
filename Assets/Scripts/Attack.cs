@@ -13,6 +13,8 @@ public class Attack : MonoBehaviour
 
     [HideInInspector] public bool Initialized = false;
 
+    public AudioClip sfx;
+
     public void Init()
     {
         var editor = GetComponentInChildren<AttackEditor>(true);
@@ -27,11 +29,21 @@ public class Attack : MonoBehaviour
         Vector2Int rootPos = clickPos + new Vector2Int(-1, -1);
         tileAttacks.Iterate2D((tAtk, x, y) =>
         {
-            if (tAtk.IsNullAttack()) return;
+            if (tAtk == null || tAtk.IsNullAttack()) return;
             Vector2Int pos = rootPos + new Vector2Int(x, y);
             if (!GameGrid.IsValidPos(pos)) return;
 
             Unit unit = GameGrid.Instance.GetUnit(pos);
+
+            if (tAtk.knockbackDirection != Directions.None)
+            {
+                Animations.Instance.PlayKnockbackVFX(tAtk.knockbackDirection, pos);
+            }
+            else
+            {
+                Animations.Instance.PlayAttackVFX(tAtk.damageType, pos);
+            }
+
             if (unit == null) return;
 
             DamagePreviewInfo info = unit.SimulateAttack(tAtk);
@@ -44,6 +56,7 @@ public class Attack : MonoBehaviour
         }, true);
         // iterates top left -> bottom right (shouldn't matter in most cases)
 
+        SoundPlayer.PlayAtkSound(this);
         AttackManager.Instance.RemoveAttack(this);
         
     }

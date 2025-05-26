@@ -17,6 +17,10 @@ PrefabInstance:
       value: Battlecruiser
       objectReference: {fileID: 0}
     - target: {fileID: 6377243349223936042, guid: 0b09fdc1473504e4d87112446c7dc21a, type: 3}
+      propertyPath: unitType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6377243349223936042, guid: 0b09fdc1473504e4d87112446c7dc21a, type: 3}
       propertyPath: immuneDamage
       value: 2
       objectReference: {fileID: 0}
@@ -24,6 +28,18 @@ PrefabInstance:
       propertyPath: vulnerableDamage
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6377243349223936042, guid: 0b09fdc1473504e4d87112446c7dc21a, type: 3}
+      propertyPath: spriteSheet.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6377243349223936042, guid: 0b09fdc1473504e4d87112446c7dc21a, type: 3}
+      propertyPath: 'spriteSheet.Array.data[0]'
+      value: 
+      objectReference: {fileID: -8283215474268407254, guid: f6e923210f1527545956bf85b1d02768, type: 3}
+    - target: {fileID: 6377243349223936042, guid: 0b09fdc1473504e4d87112446c7dc21a, type: 3}
+      propertyPath: 'spriteSheet.Array.data[1]'
+      value: 
+      objectReference: {fileID: -5142981687616665472, guid: f6e923210f1527545956bf85b1d02768, type: 3}
     - target: {fileID: 6964040455056918909, guid: 0b09fdc1473504e4d87112446c7dc21a, type: 3}
       propertyPath: m_Name
       value: Battlecruiser

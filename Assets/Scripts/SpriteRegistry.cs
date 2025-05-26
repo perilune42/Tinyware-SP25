@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class SpriteRegistry : MonoBehaviour
 {
-    [SerializeField] private DamageIcons _dTypeSprites;
+    [SerializeField] private Icons _dTypeSprites;
 
     public static Dictionary<DamageType, Sprite> dTypeSprites;
     public static Dictionary<DamageType, Color> dTypeColors;
     public static Dictionary<DamageType, Sprite> immuneSprites;
+
+    public static Dictionary<UnitType, Sprite> unitTypeSprites;
 
     public static Dictionary<Vector2Int, Sprite> knockbackIcons;
 
@@ -23,13 +25,15 @@ public class SpriteRegistry : MonoBehaviour
             {DamageType.Ballistic,  _dTypeSprites.ballisticIcon},
             {DamageType.Energy, _dTypeSprites.energyIcon},
             {DamageType.Explosive, _dTypeSprites.explosiveIcon},
+            {DamageType.Friendly,  _dTypeSprites.friendlyIcon}
         };
 
         dTypeColors = new Dictionary<DamageType, Color>()
         {
             {DamageType.Ballistic,  _dTypeSprites.ballisticColor},
             {DamageType.Energy, _dTypeSprites.energyColor},
-            {DamageType.Explosive, _dTypeSprites.explosiveColor }
+            {DamageType.Explosive, _dTypeSprites.explosiveColor },
+            {DamageType.Friendly,  _dTypeSprites.friendlyColor}
         };
 
         knockbackIcons = new Dictionary<Vector2Int, Sprite>()
@@ -47,11 +51,17 @@ public class SpriteRegistry : MonoBehaviour
             {DamageType.Explosive, _dTypeSprites.explosiveImmuneIcon},
         };
 
+        unitTypeSprites = new Dictionary<UnitType, Sprite>()
+        {
+            { UnitType.Ground, _dTypeSprites.groundIcon },
+            { UnitType.Aerial, _dTypeSprites.aerialIcon },
+            { UnitType.Static, _dTypeSprites.staticIcon },
+        };
 
     }
 
     [Serializable]
-    public class DamageIcons
+    public class Icons
     {
         public Sprite ballisticIcon;
         public Sprite ballisticImmuneIcon;
@@ -63,6 +73,14 @@ public class SpriteRegistry : MonoBehaviour
         public Sprite explosiveImmuneIcon;
         public Color explosiveColor;
 
+        public Sprite friendlyIcon;
+        public Color friendlyColor;
+
+
+        public Sprite groundIcon;
+        public Sprite aerialIcon;
+        public Sprite staticIcon;
+
         // U, D, L, R
         public Sprite[] knockbackIcons = new Sprite[4];
 
@@ -72,6 +90,6 @@ public class SpriteRegistry : MonoBehaviour
 
     public class Colors
     {
-        public Color damageBoostedAdditive, damageImmuneAdditive, damageAppliedAdditive;
+        public Color damageBoostedAdditive, damageImmuneAdditive, damageAppliedAdditive, friendly, enemy;
     }
 }
