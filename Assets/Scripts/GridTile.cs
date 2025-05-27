@@ -19,7 +19,10 @@ public class GridTile : MonoBehaviour, IPointerDownHandler, IPointerEnterHandler
     [SerializeField] Image dTypeImage;
     [SerializeField] TMP_Text damageNumber;
 
+    public Sprite TileSprite;
     public TileType Type;
+
+
 
     public void Init(Vector2Int pos)
     {

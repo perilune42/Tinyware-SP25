@@ -8,13 +8,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 702773208134103085, guid: 279382529569f2846921f536e5fa5373, type: 3}
+      propertyPath: m_text
+      value: "\u2190"
+      objectReference: {fileID: 0}
     - target: {fileID: 1254045701888755647, guid: 279382529569f2846921f536e5fa5373, type: 3}
       propertyPath: m_Name
       value: Ion Cannon
       objectReference: {fileID: 0}
     - target: {fileID: 2083813863281775329, guid: 279382529569f2846921f536e5fa5373, type: 3}
       propertyPath: TileAttack.knockbackDirection.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2136413892827877688, guid: 279382529569f2846921f536e5fa5373, type: 3}
       propertyPath: m_text
@@ -24,13 +28,17 @@ PrefabInstance:
       propertyPath: m_text
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2155418354801000541, guid: 279382529569f2846921f536e5fa5373, type: 3}
+      propertyPath: m_text
+      value: "\u2192"
+      objectReference: {fileID: 0}
     - target: {fileID: 2762303237589241609, guid: 279382529569f2846921f536e5fa5373, type: 3}
       propertyPath: TileAttack.knockbackDirection.y
-      value: -1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3003757844966386930, guid: 279382529569f2846921f536e5fa5373, type: 3}
       propertyPath: m_text
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3713240788689948651, guid: 279382529569f2846921f536e5fa5373, type: 3}
       propertyPath: TileAttack.damage
@@ -42,7 +50,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4761958170314595300, guid: 279382529569f2846921f536e5fa5373, type: 3}
       propertyPath: m_text
-      value: "\u2191"
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4834468515604482392, guid: 279382529569f2846921f536e5fa5373, type: 3}
+      propertyPath: TileAttack.knockbackDirection.x
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4843657032068165603, guid: 279382529569f2846921f536e5fa5373, type: 3}
       propertyPath: TileAttack.damage
@@ -64,6 +76,10 @@ PrefabInstance:
       propertyPath: attackName
       value: Ion Cannon
       objectReference: {fileID: 0}
+    - target: {fileID: 6286513328924768552, guid: 279382529569f2846921f536e5fa5373, type: 3}
+      propertyPath: TileAttack.knockbackDirection.x
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 6449038142434491172, guid: 279382529569f2846921f536e5fa5373, type: 3}
       propertyPath: m_text
       value: Energy
@@ -78,7 +94,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8597815662618650103, guid: 279382529569f2846921f536e5fa5373, type: 3}
       propertyPath: TileAttack.damage
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8597815662618650103, guid: 279382529569f2846921f536e5fa5373, type: 3}
       propertyPath: TileAttack.damageType
@@ -86,7 +102,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8695116322784413196, guid: 279382529569f2846921f536e5fa5373, type: 3}
       propertyPath: m_text
-      value: "\u2193"
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8884089982453543801, guid: 279382529569f2846921f536e5fa5373, type: 3}
       propertyPath: m_LocalPosition.x

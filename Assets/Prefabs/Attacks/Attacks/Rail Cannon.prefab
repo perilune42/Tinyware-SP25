@@ -28,6 +28,10 @@ PrefabInstance:
       propertyPath: TileAttack.knockbackDirection.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2145629298958132966, guid: 279382529569f2846921f536e5fa5373, type: 3}
+      propertyPath: m_text
+      value: "\u2191"
+      objectReference: {fileID: 0}
     - target: {fileID: 2762303237589241609, guid: 279382529569f2846921f536e5fa5373, type: 3}
       propertyPath: TileAttack.damage
       value: 3
@@ -40,9 +44,25 @@ PrefabInstance:
       propertyPath: m_text
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 3713240788689948651, guid: 279382529569f2846921f536e5fa5373, type: 3}
+      propertyPath: TileAttack.knockbackDirection.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3713240788689948651, guid: 279382529569f2846921f536e5fa5373, type: 3}
+      propertyPath: TileAttack.knockbackDirection.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4761958170314595300, guid: 279382529569f2846921f536e5fa5373, type: 3}
       propertyPath: m_text
       value: "\u2191"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4843657032068165603, guid: 279382529569f2846921f536e5fa5373, type: 3}
+      propertyPath: TileAttack.knockbackDirection.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4843657032068165603, guid: 279382529569f2846921f536e5fa5373, type: 3}
+      propertyPath: TileAttack.knockbackDirection.y
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5723103290262366451, guid: 279382529569f2846921f536e5fa5373, type: 3}
       propertyPath: sfx
@@ -59,6 +79,10 @@ PrefabInstance:
     - target: {fileID: 6449038142434491172, guid: 279382529569f2846921f536e5fa5373, type: 3}
       propertyPath: m_text
       value: Ballistic
+      objectReference: {fileID: 0}
+    - target: {fileID: 7887767500152375022, guid: 279382529569f2846921f536e5fa5373, type: 3}
+      propertyPath: m_text
+      value: "\u2191"
       objectReference: {fileID: 0}
     - target: {fileID: 8597815662618650103, guid: 279382529569f2846921f536e5fa5373, type: 3}
       propertyPath: TileAttack.damage

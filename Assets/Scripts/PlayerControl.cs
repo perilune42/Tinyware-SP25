@@ -36,7 +36,20 @@ public class PlayerControl : MonoBehaviour
     {
         if (GameGrid.IsValidPos(pos))
         {
-            UnitInfoUI.Instance.ViewUnitInfo(GameGrid.Instance.GetUnit(pos));
+            Unit unit = GameGrid.Instance.GetUnit(pos);
+            UnitInfoUI.Instance.ViewUnitInfo(unit);
+            if (unit == null)
+            {
+                TerrainInfoUI.Instance.ShowTile(GameGrid.Instance.GetTile(pos));
+            }
+            else
+            {
+                TerrainInfoUI.Instance.Hide();
+            }
+        }
+        else
+        {
+            TerrainInfoUI.Instance.ShowBoundaryTile(GameGrid.Instance.GetBoundaryTile(pos));
         }
         if (SelectedAttack == null) return;
         OverlayManager.Instance.UpdateOverlay(SelectedAttack, pos);

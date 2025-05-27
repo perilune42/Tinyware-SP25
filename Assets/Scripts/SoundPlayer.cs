@@ -28,7 +28,7 @@ public class SoundPlayer : MonoBehaviour
     }
     public static void PlayLose() 
     {
-        Instance.audioSource.PlayOneShot(Instance.lose, 0.5f);    
+        Instance.audioSource.PlayOneShot(Instance.lose, 0.2f);    
     }
 
     public static void PlayTime()

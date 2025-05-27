@@ -11,6 +11,9 @@ public class BoundaryTile : MonoBehaviour, IPointerDownHandler, IPointerEnterHan
     [SerializeField] Image dTypeImage;
     [SerializeField] TMP_Text damageNumber;
 
+    public Sprite TileSprite;
+    public Color SpriteColor;
+
     public void Init(Vector2Int pos)
     {
         this.Pos = pos;

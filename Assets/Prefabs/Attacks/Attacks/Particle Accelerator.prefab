@@ -18,7 +18,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2083813863281775329, guid: 279382529569f2846921f536e5fa5373, type: 3}
       propertyPath: TileAttack.damage
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2083813863281775329, guid: 279382529569f2846921f536e5fa5373, type: 3}
       propertyPath: TileAttack.damageType
@@ -34,7 +34,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3003757844966386930, guid: 279382529569f2846921f536e5fa5373, type: 3}
       propertyPath: m_text
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3658387876722101298, guid: 279382529569f2846921f536e5fa5373, type: 3}
       propertyPath: m_text
@@ -42,7 +42,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4761958170314595300, guid: 279382529569f2846921f536e5fa5373, type: 3}
       propertyPath: m_text
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5723103290262366451, guid: 279382529569f2846921f536e5fa5373, type: 3}
       propertyPath: sfx
@@ -62,7 +62,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8597815662618650103, guid: 279382529569f2846921f536e5fa5373, type: 3}
       propertyPath: TileAttack.damage
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8597815662618650103, guid: 279382529569f2846921f536e5fa5373, type: 3}
       propertyPath: TileAttack.damageType
