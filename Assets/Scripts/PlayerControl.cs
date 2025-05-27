@@ -49,6 +49,7 @@ public class PlayerControl : MonoBehaviour
         }
         else
         {
+            UnitInfoUI.Instance.ViewUnitInfo(null);
             TerrainInfoUI.Instance.ShowBoundaryTile(GameGrid.Instance.GetBoundaryTile(pos));
         }
         if (SelectedAttack == null) return;

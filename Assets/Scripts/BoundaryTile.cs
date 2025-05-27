@@ -11,12 +11,24 @@ public class BoundaryTile : MonoBehaviour, IPointerDownHandler, IPointerEnterHan
     [SerializeField] Image dTypeImage;
     [SerializeField] TMP_Text damageNumber;
 
+    [SerializeField] Image tileImage;
+
     public Sprite TileSprite;
     public Color SpriteColor;
+    public Color LethalColor;
+
+    public bool IsLethal = false;
 
     public void Init(Vector2Int pos)
     {
         this.Pos = pos;
+    }
+
+    public void SetLethal()
+    {
+        this.IsLethal = true;
+        SpriteColor = LethalColor;
+        tileImage.color = LethalColor;
     }
 
     public void OnPointerDown(PointerEventData eventData)

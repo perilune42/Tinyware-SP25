@@ -14,8 +14,8 @@ public class TimerChangePopup : MonoBehaviour
         if (isPositive) timeText.text = $"+ {Timer.FormatTime(time)}";
         else timeText.text = $"- {Timer.FormatTime(time)}";
         descriptionText.text = desc;
-        transform.DOMoveY(transform.position.y + upShift, 5f);
-        descriptionText.DOColor(Color.clear, 5f);
-        timeText.DOColor(Color.clear, 5f).OnComplete(() => { if (gameObject != null) Destroy(gameObject); });
+        transform.DOMoveY(transform.position.y + upShift, 7f);
+        descriptionText.DOColor(Color.clear, 7f);
+        timeText.DOColor(Color.clear, 7f).OnComplete(() => { if (gameObject != null) Destroy(gameObject); });
     }
 }

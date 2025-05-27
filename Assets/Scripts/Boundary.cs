@@ -3,6 +3,8 @@ using UnityEngine.UI;
 
 public class Boundary : MonoBehaviour
 {
+    [SerializeField] float lethalChance = 0.2f;
+
     private void Start()
     {
         GridLayoutGroup glg = GetComponent<GridLayoutGroup>();
@@ -28,6 +30,10 @@ public class Boundary : MonoBehaviour
                 else
                 {
                     tile.Init(pos);
+                    if (Random.value  < lethalChance)
+                    {
+                        tile.SetLethal();
+                    }
                     GameGrid.Instance.AddBoundaryTile(tile, pos);
                 }
             }

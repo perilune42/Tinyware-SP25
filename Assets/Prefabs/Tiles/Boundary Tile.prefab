@@ -93,8 +93,11 @@ MonoBehaviour:
   Pos: {x: 0, y: 0}
   dTypeImage: {fileID: 5575033758829857940}
   damageNumber: {fileID: 2544315698654867668}
+  tileImage: {fileID: 8468261705660475726}
   TileSprite: {fileID: 21300000, guid: 5ef2f11cc3c278640a5f3cce3edc2f42, type: 3}
   SpriteColor: {r: 0.09411765, g: 0.34509805, b: 0.41568628, a: 1}
+  LethalColor: {r: 0.3726415, g: 0.11249555, b: 0.17547819, a: 1}
+  IsLethal: 0
 --- !u!1 &3896616291694677130
 GameObject:
   m_ObjectHideFlags: 0

@@ -104,7 +104,8 @@ public class Unit : MonoBehaviour
         List<Unit> pushChain = new List<Unit>() { this };
         var currPos = Pos;
         bool aerialPushed = false;
-        if (unitType == UnitType.Aerial && GameGrid.Instance.IsPassable(Pos + dir) && GameGrid.Instance.GetUnit(Pos + dir) == null)
+        if (unitType == UnitType.Aerial && GameGrid.Instance.IsPassable(Pos + dir)
+            && (GameGrid.Instance.IsLethalBoundaryTile(Pos + dir) || GameGrid.Instance.GetUnit(Pos + dir) == null))
         {
             currPos += dir;
             aerialPushed = true;
@@ -117,8 +118,13 @@ public class Unit : MonoBehaviour
             currPos += dir;
             Unit unit = null;
             if (GameGrid.IsValidPos(currPos)) unit = GameGrid.Instance.GetUnit(currPos);
+
+            if (GameGrid.Instance.IsLethalBoundaryTile(currPos))
+            {
+                ended = true;
+            }
             // blocked tile
-            if (!GameGrid.Instance.IsPassable(currPos) || (unit != null && unit.unitType == UnitType.Static))
+            else if (!GameGrid.Instance.IsPassable(currPos) || (unit != null && unit.unitType == UnitType.Static))
             {
                 ended = true;
                 blocked = true;
@@ -157,7 +163,10 @@ public class Unit : MonoBehaviour
 
     public void Death()
     {
-        GameGrid.Instance.SetUnit(null, Pos);
+        if (!GameGrid.IsOnBoundary(Pos))
+        {
+            GameGrid.Instance.SetUnit(null, Pos);
+        }
         GameManager.Instance.RemoveUnit(this);
         Animations.Instance.OnIdleAnimation -= SwitchToFrame;
         Destroy(gameObject);

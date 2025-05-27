@@ -45,7 +45,7 @@ public class GameManager : MonoBehaviour
             currSeed = prevSeed;
             Random.InitState(prevSeed);
         }
-
+        Debug.Log(currSeed);
         
     }
 
@@ -224,18 +224,6 @@ public class GameManager : MonoBehaviour
     public void Menu()
     {
         SceneManager.LoadScene("Menu");
-    }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            LoseGame();
-        }
-        if (Input.GetKeyDown(KeyCode.W))
-        {
-            StartRoundTransition();
-        }
     }
 
 }

@@ -46,8 +46,17 @@ public class TerrainInfoUI : MonoBehaviour
         container.SetActive(true);
         tileImage.color = bTile.SpriteColor;
         tileImage.sprite = bTile.TileSprite;
-        tileTypeText.text = "BORDER";
-        descText.text = "Units cannot be pushed into this tile.";
+        if (bTile.IsLethal)
+        {
+            tileTypeText.text = "BORDER (LETHAL)";
+            descText.text = "All units are destroyed upon entering this tile.";
+        }
+        else
+        {
+            tileTypeText.text = "BORDER";
+            descText.text = "Units cannot be pushed into this tile.";
+        }
+
     }
 
     public void Hide()

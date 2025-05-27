@@ -173,7 +173,7 @@ public class GameGrid : MonoBehaviour
 
     public bool IsPassable(Vector2Int pos)
     {
-        return IsValidPos(pos) && GetTile(pos).Type != TileType.Mountain;
+        return (IsValidPos(pos) && GetTile(pos).Type != TileType.Mountain) || (IsLethalBoundaryTile(pos));
     }
 
     public static bool IsOnBoundary(Vector2Int pos)
@@ -185,25 +185,46 @@ public class GameGrid : MonoBehaviour
     // move from one tile to another, must be a valid empty tile
     public void MoveUnit(Unit unit, Vector2Int pos)
     {
-        if (!IsValidPos(pos) || GetUnit(pos) != null) {
+        if (!IsLethalBoundaryTile(pos) && (!IsValidPos(pos) || GetUnit(pos) != null)) {
             Debug.LogError("Invalid Move");
         }
         var oldPos = unit.Pos;
-        SetUnit(unit, pos, false);
+        if (!IsLethalBoundaryTile(pos))
+        {
+            SetUnit(unit, pos, false);
+        }
+        else
+        {
+            unit.SetPos(pos);
+        }
         SetUnit(null, oldPos);
-        unit.transform.DOMove(GetTile(pos).transform.position, 0.3f).OnComplete(() => FinalizeMove(unit, pos));
+        if (IsLethalBoundaryTile(pos))
+        {
+            unit.transform.DOMove(GetBoundaryTile(pos).transform.position, 0.3f).OnComplete(() => FinalizeMove(unit, pos));
+        }
+        else
+        {
+            unit.transform.DOMove(GetTile(pos).transform.position, 0.3f).OnComplete(() => FinalizeMove(unit, pos));
+        }
         MovingUnits = true;
     }
 
     private void FinalizeMove(Unit unit, Vector2Int pos)
     {
-        unit.transform.localPosition = Vector3.zero;
-        if (unit.unitType != UnitType.Aerial && GetTile(pos).Type == TileType.Chasm)
+        if (IsValidPos(pos))
+        {
+            unit.transform.localPosition = Vector3.zero;
+        }
+        if (IsLethalBoundaryTile(pos) || (unit.unitType != UnitType.Aerial && GetTile(pos).Type == TileType.Chasm))
         {
             unit.Death();
         }
         MovingUnits = false;
     }
 
+    public bool IsLethalBoundaryTile(Vector2Int pos)
+    {
+        return (IsOnBoundary(pos) && GetBoundaryTile(pos).IsLethal);
+    }
 
 }
